@@ -1,0 +1,186 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.colorBackground{
+    background: var(--background-color);
+    color: var(--color-text);
+    width: 100%;
+    position: absolute;
+    transition: .7s ease-in-out background,.7s ease-in-out color, .7s ease-in-out border ;
+    max-height: 3908px;
+    min-height: 100%;
+}
+
+/*pseudo elemento que engloba todos os nossos elemento do nosso documento HTML*/
+:root{
+    --color-text: #000;
+    --background-color: #fff;
+    --border-color: #e7ecf0;
+    --background-color2: #ffffff;
+
+    /*variavel que vai armazenar a cor do texto*/
+}
+
+#darkmodeToggle:checked + .colorBackground{
+    --color-text: rgb(230, 224, 224);
+    --background-color: #14161a;
+    --border-color: #2f3336;
+
+    transition: .7s ease-in-out background,.7s ease-in-out color, .7s ease-in-out border;
+}
+
+#darkmodeToggle:checked + .colorBackground .darkmodeLabel:after{
+    content: ' on';
+}
+
+#darkmodeToggle{
+    display: none;
+}
+
+.darkmodeLabel{
+    cursor: pointer;
+}
+
+.darkmodeLabel:after{
+    content: ' off';
+}
+
+a{
+    color: var(--color-text);
+    transition:.7s ease-in-out color;
+}
+
+.container2{
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+}
+/* quando se usa width de 100% = medidas sao relativas ao tamanho do pai, ai no caso vai ocupar 100% do pai que é o body
+
+                                                                            TECNICA DO RELOGIO
+a margin serve para adicionar um espaçamento entre os elementos e voce consegue aplicar para todos os lados em apenas um comando se quiser
+voce usa o margin: 0 0 0 0 e os 4 valores e pega pela ordem do relogio topo->right->botton->left um relogio. se aplicar 3 valores = cima, direita e esquerda, baixo
+2  valores = o primeiro pra cima e pra baixo e o segundo pra direita e esquerda. 1 valor = todos os lados
+o margin 0 e auto o pra cima e pra baixo ta zerado e o pros lados voce deixa automatico para o navegador(uma forma de deixar os itens no centro)
+margin: top right botton left
+margin: top right-left botton
+margin: top-botton right-left
+margin: todos os lados*/
+
+header{
+    margin-top: 20px;
+    flex-basis: 30%;
+    /*faz os itens se separarem no display flex*/
+}
+header figure{}
+header figure img{
+} 
+header figure figcaption{
+    display: none;
+    /*esconde elementos*/
+}
+
+nav{
+    margin-top: 25px;
+}
+.listaLateral{
+}
+.listaLateral li{
+    margin-bottom: 25px;
+}
+.listaLateral li img{
+    max-width: 26px;
+}
+.listaLateral li a{
+    text-decoration: none;
+    font-size: 20px ;
+    vertical-align: super;
+    /*alinhar na vertical, ou seja, alinhar os itens com as imagens*/
+
+}
+
+main{
+    padding-top: 5px;
+    flex-basis: 70%;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    transition: .7s ease-in-out border ;
+    
+}
+main h2{
+    padding: 10px 30px  ;
+}
+main form{
+    padding: 10px 30px;
+    border-top: 1px solid var(--border-color) ;
+    border-bottom: 10px solid var(--border-color) ;
+    transition: .7s ease-in-out border ;
+    text-align: right; /*usamos para jogar o button la para a direita*/
+}
+form textarea{
+    background-color:var(--background-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    border: none;
+    outline: none; /* faz sumir a borda que fica em volta do documento quando voce clica*/
+    resize: none; /* tira a possibilidade do usuario poder mudar o tamanho da aba de tweet*/
+    height: 80px;
+    color:var(--color-text);
+    transition: .7s ease-in-out background,.7s ease-in-out color;;
+    /*margin é o espaçamento para fora entre um elemento e outro já o padding é um espaçamento interno ou para dentro e é geralmente usado pra aumentar o tamanho do documento ou separar o pai de um filho
+    preenchimento ou espaçamento interno*/
+}
+form button{
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: #ffff;
+    background-color: #1da1f2;
+    border: none;
+}
+
+.tweets{}
+.tweets ul{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    /*display direction tambem ia servir
+    Mas lembrando que isso é para inverter a coluna para ir aparecendo os ultimos
+    twittes na frente dos outros na hora que for ir postando*/
+}
+.tweets ul li{
+    padding: 20px 30px;
+    display:flex;
+    align-items: flex-start;
+    /* o align itens é usado para alinhamento vertical do display flex, alinhar verticalmente a imagem com o conteudo*/
+    border-bottom: 1px solid var(--border-color);
+    transition: .7s ease-in-out border ;
+}
+.tweets ul li img{
+}
+
+.assunto{
+    margin-left: 15px;
+}
+.assunto h3{
+    display: inline-block;
+    /*ficam os 2 na mesma linha com o inline block o display flex tambem funciona mas assim é mais facil já que deixa todos em formato linha*/
+}
+.assunto span{
+    display: inline-block ;
+    color: #828282;
+}
+.assunto p{
+    margin-top: 10px ;
+    color: var(--color-text);
+    transition:.7s ease-in-out color;
+}
+
+.fotoeu{
+    width: 42px;
+}
+#foto{
+    margin-top: 10px;
+}
